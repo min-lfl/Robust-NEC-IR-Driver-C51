@@ -1,0 +1,452 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    04/16/2026  10:05:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\KEIL_V5\C51\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\RedWAI.obj, .\Objects\uart.obj TO .\Objects\project PRINT 
+>> (.\Listings\project.m51) RAMSIZE (256) DISABLEWARNING (16)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\RedWAI.obj (REDWAI)
+  .\Objects\uart.obj (UART)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (?C?CSTPTR)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (PRINTF)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (?C_INIT)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (?C?CLDPTR)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  D:\KEIL_V5\C51\C51\LIB\C51S.LIB (?C?CCASE)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         _DATA_GROUP_
+            DATA    001CH     0001H     UNIT         ?DT?MAIN
+                    001DH     0003H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+            BIT     0021H.1   0000H.1   UNIT         ?BI?UART
+                    0021H.2   0000H.6                *** GAP ***
+            DATA    0022H     0012H     UNIT         ?DT?UART
+            DATA    0034H     000CH     UNIT         ?DT?REDWAI
+            IDATA   0040H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     0005H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0015H     UNIT         ?PR?TIMER0_INIT?REDWAI
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0382H     012AH     UNIT         ?PR?INTERRUPT_ROUTINE?REDWAI
+            CODE    04ACH     008EH     UNIT         ?C?LIB_CODE
+            CODE    053AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    05C6H     002AH     UNIT         ?PR?UART_ISR?UART
+            CODE    05F0H     0024H     UNIT         ?C_INITSEG
+            CODE    0614H     001FH     UNIT         ?PR?MAIN?MAIN
+            CODE    0633H     001EH     UNIT         ?PR?GET_RED_DATA?REDWAI
+            CODE    0651H     001BH     UNIT         ?PR?_UART_READBYTE?UART
+            CODE    066CH     0019H     UNIT         ?PR?UART_INIT?UART
+            CODE    0685H     000EH     UNIT         ?PR?PDATA_INIT?REDWAI
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/16/2026  10:05:50  PAGE 2
+
+
+            CODE    0693H     000EH     UNIT         ?PR?_SET_INTERRUPTTIMER?REDWAI
+            CODE    06A1H     000EH     UNIT         ?PR?READ_INTERRUPTTIMER?REDWAI
+            CODE    06AFH     000BH     UNIT         ?PR?INTERRUPT0_INIT?REDWAI
+            CODE    06BAH     0009H     UNIT         ?PR?TIMER0_ROUTINE?REDWAI
+            CODE    06C3H     0008H     UNIT         ?PR?_PUTCHAR?UART
+            CODE    06CBH     0006H     UNIT         ?CO?MAIN
+            CODE    06D1H     0006H     UNIT         ?PR?REDWAI_INIT?REDWAI
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (MAIN)
+
+
+SEGMENT                                   BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                  START    LENGTH     START    LENGTH
+--------------------------------------------------------------------------
+?PR?INTERRUPT_ROUTINE?REDWAI           -----    -----      -----    -----
+  +--> ?PR?READ_INTERRUPTTIMER?REDWAI
+  +--> ?PR?_SET_INTERRUPTTIMER?REDWAI
+  +--> ?PR?PDATA_INIT?REDWAI
+
+?PR?PDATA_INIT?REDWAI                  -----    -----      -----    -----
+  +--> ?PR?_SET_INTERRUPTTIMER?REDWAI
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                          -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                          -----    -----      -----    -----
+  +--> ?PR?REDWAI_INIT?REDWAI
+  +--> ?PR?UART_INIT?UART
+  +--> ?PR?GET_RED_DATA?REDWAI
+  +--> ?CO?MAIN
+  +--> ?PR?PRINTF?PRINTF
+
+?PR?REDWAI_INIT?REDWAI                 -----    -----      -----    -----
+  +--> ?PR?INTERRUPT0_INIT?REDWAI
+  +--> ?PR?TIMER0_INIT?REDWAI
+
+?PR?PRINTF?PRINTF                      0020H.0  0001H.1    0008H    0014H
+  +--> ?PR?_PUTCHAR?UART
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/16/2026  10:05:50  PAGE 3
+
+
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:0614H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00F0H         PUBLIC        B
+  D:00E0H         PUBLIC        ACC
+  D:00D0H         PUBLIC        PSW
+  D:001CH         PUBLIC        Code
+  -------         PROC          MAIN
+  C:0614H         LINE#         8
+  C:0614H         LINE#         9
+  C:0617H         LINE#         10
+  C:061AH         LINE#         12
+  C:061AH         LINE#         14
+  C:061FH         LINE#         16
+  C:0623H         LINE#         17
+  C:0631H         LINE#         18
+  C:0631H         LINE#         19
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        REDWAI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:06BAH         PUBLIC        Timer0_Routine
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0685H         PUBLIC        pData_init
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  B:00A8H.7       PUBLIC        EA
+  D:0036H         PUBLIC        restartFlag
+  C:0698H         PUBLIC        _set_InterruptTimer
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:0037H         PUBLIC        Time
+  C:06D1H         PUBLIC        RedWAI_init
+  D:00B8H         PUBLIC        IP
+  C:0633H         PUBLIC        get_Red_Data
+  C:06AFH         PUBLIC        Interrupt0_init
+  C:0382H         PUBLIC        Interrupt_Routine
+  D:00D8H         PUBLIC        CCON
+  D:0039H         PUBLIC        Red_status
+  C:000EH         PUBLIC        Timer0_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:0088H.1       PUBLIC        IE0
+  D:00F0H         PUBLIC        B
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/16/2026  10:05:50  PAGE 4
+
+
+  D:008EH         PUBLIC        AUXR
+  D:00E0H         PUBLIC        ACC
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:06A1H         PUBLIC        read_InterruptTimer
+  B:00B8H.0       PUBLIC        PX0
+  D:003AH         PUBLIC        pData
+  D:003BH         PUBLIC        DataFlag
+  D:00D0H         PUBLIC        PSW
+  D:003CH         PUBLIC        Data
+  -------         PROC          INTERRUPT_ROUTINE
+  C:0382H         LINE#         16
+  C:039FH         LINE#         19
+  C:03A3H         LINE#         20
+  C:03A6H         LINE#         22
+  C:03A6H         LINE#         23
+  C:03A6H         LINE#         24
+  C:03A8H         LINE#         28
+  C:03AEH         LINE#         29
+  C:03B0H         LINE#         30
+  C:03B7H         LINE#         32
+  C:03CCH         LINE#         33
+  C:03CFH         LINE#         35
+  C:03D5H         LINE#         36
+  C:03D7H         LINE#         37
+  C:03DAH         LINE#         38
+  C:03DAH         LINE#         39
+  C:03DDH         LINE#         40
+  C:03DDH         LINE#         41
+  C:03DDH         LINE#         42
+  C:03E0H         LINE#         45
+  C:03E9H         LINE#         47
+  C:03EBH         LINE#         48
+  C:03F2H         LINE#         51
+  C:0407H         LINE#         52
+  C:040DH         LINE#         53
+  C:040FH         LINE#         54
+  C:0431H         LINE#         55
+  C:0433H         LINE#         56
+  C:043AH         LINE#         57
+  C:043CH         LINE#         60
+  C:0451H         LINE#         61
+  C:0457H         LINE#         62
+  C:0459H         LINE#         64
+  C:047AH         LINE#         65
+  C:047CH         LINE#         66
+  C:0486H         LINE#         67
+  C:0488H         LINE#         69
+  C:0488H         LINE#         70
+  C:0488H         LINE#         71
+  C:048BH         LINE#         72
+  C:048EH         LINE#         73
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/16/2026  10:05:50  PAGE 5
+
+
+  C:0491H         LINE#         74
+  C:0491H         LINE#         75
+  C:0491H         LINE#         76
+  -------         ENDPROC       INTERRUPT_ROUTINE
+  -------         PROC          REDWAI_INIT
+  C:06D1H         LINE#         84
+  C:06D1H         LINE#         85
+  C:06D4H         LINE#         86
+  -------         ENDPROC       REDWAI_INIT
+  -------         PROC          PDATA_INIT
+  C:0685H         LINE#         94
+  C:0685H         LINE#         95
+  C:0688H         LINE#         96
+  C:068AH         LINE#         97
+  C:068FH         LINE#         98
+  C:0692H         LINE#         99
+  -------         ENDPROC       PDATA_INIT
+  -------         PROC          GET_RED_DATA
+  C:0633H         LINE#         106
+  C:0633H         LINE#         107
+  C:0637H         LINE#         108
+  C:0643H         LINE#         109
+  C:0646H         LINE#         110
+  C:0649H         LINE#         111
+  C:0649H         LINE#         112
+  C:064CH         LINE#         113
+  C:064EH         LINE#         114
+  C:064EH         LINE#         115
+  C:064EH         LINE#         116
+  C:0650H         LINE#         117
+  C:0650H         LINE#         118
+  -------         ENDPROC       GET_RED_DATA
+  -------         PROC          INTERRUPT0_INIT
+  C:06AFH         LINE#         127
+  C:06AFH         LINE#         128
+  C:06B1H         LINE#         129
+  C:06B3H         LINE#         130
+  C:06B5H         LINE#         131
+  C:06B7H         LINE#         132
+  C:06B9H         LINE#         133
+  -------         ENDPROC       INTERRUPT0_INIT
+  -------         PROC          TIMER0_INIT
+  C:000EH         LINE#         142
+  C:000EH         LINE#         143
+  C:000EH         LINE#         147
+  C:0011H         LINE#         149
+  C:0014H         LINE#         150
+  C:0017H         LINE#         152
+  C:001AH         LINE#         153
+  C:001CH         LINE#         154
+  C:001EH         LINE#         155
+  C:0020H         LINE#         157
+  C:0022H         LINE#         158
+  -------         ENDPROC       TIMER0_INIT
+  -------         PROC          TIMER0_ROUTINE
+  C:06BAH         LINE#         163
+  C:06BAH         LINE#         165
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/16/2026  10:05:50  PAGE 6
+
+
+  C:06BCH         LINE#         166
+  C:06BFH         LINE#         167
+  C:06C2H         LINE#         168
+  -------         ENDPROC       TIMER0_ROUTINE
+  -------         PROC          L?0034
+  -------         ENDPROC       L?0034
+  -------         PROC          _SET_INTERRUPTTIMER
+  D:0004H         SYMBOL        Time
+  C:0698H         LINE#         176
+  C:069CH         LINE#         177
+  C:069EH         LINE#         178
+  C:06A0H         LINE#         179
+  -------         ENDPROC       _SET_INTERRUPTTIMER
+  -------         PROC          READ_INTERRUPTTIMER
+  -------         DO            
+  D:0034H         SYMBOL        Num
+  -------         ENDDO         
+  C:06A1H         LINE#         188
+  C:06A1H         LINE#         190
+  C:06ABH         LINE#         191
+  C:06AEH         LINE#         192
+  -------         ENDPROC       READ_INTERRUPTTIMER
+  -------         ENDMOD        REDWAI
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  B:00A8H.7       PUBLIC        EA
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  C:0651H         PUBLIC        _Uart_ReadByte
+  C:066CH         PUBLIC        Uart_Init
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:00D8H         PUBLIC        CCON
+  C:05C6H         PUBLIC        Uart_Isr
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00F0H         PUBLIC        B
+  D:008EH         PUBLIC        AUXR
+  B:0021H.1       SYMBOL        busy
+  D:00E0H         PUBLIC        ACC
+  D:0022H         SYMBOL        rx_buffer
+  D:00D6H         PUBLIC        T2H
+  D:00D7H         PUBLIC        T2L
+  D:0032H         SYMBOL        read_ptr
+  D:0033H         SYMBOL        write_ptr
+  D:00D0H         PUBLIC        PSW
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/16/2026  10:05:50  PAGE 7
+
+
+  C:06C3H         PUBLIC        _putchar
+  -------         PROC          UART_INIT
+  C:066CH         LINE#         23
+  C:066CH         LINE#         24
+  C:066CH         LINE#         25
+  C:066EH         LINE#         27
+  C:0671H         LINE#         28
+  C:0674H         LINE#         32
+  C:0677H         LINE#         33
+  C:067AH         LINE#         34
+  C:067DH         LINE#         35
+  C:0680H         LINE#         38
+  C:0682H         LINE#         39
+  C:0684H         LINE#         41
+  -------         ENDPROC       UART_INIT
+  -------         PROC          _PUTCHAR
+  D:0007H         SYMBOL        ch
+  C:06C3H         LINE#         46
+  C:06C3H         LINE#         47
+  C:06C3H         LINE#         48
+  C:06C6H         LINE#         49
+  C:06C8H         LINE#         50
+  C:06CAH         LINE#         51
+  C:06CAH         LINE#         52
+  -------         ENDPROC       _PUTCHAR
+  -------         PROC          _UART_READBYTE
+  D:0001H         SYMBOL        dat
+  C:0651H         LINE#         57
+  C:0651H         LINE#         58
+  C:0651H         LINE#         59
+  C:0659H         LINE#         61
+  C:0662H         LINE#         62
+  C:0669H         LINE#         63
+  C:066BH         LINE#         64
+  -------         ENDPROC       _UART_READBYTE
+  -------         PROC          UART_ISR
+  C:05C6H         LINE#         69
+  C:05CFH         LINE#         71
+  C:05D2H         LINE#         72
+  C:05D2H         LINE#         73
+  C:05D4H         LINE#         74
+  C:05D6H         LINE#         75
+  C:05D6H         LINE#         76
+  C:05D9H         LINE#         77
+  C:05D9H         LINE#         78
+  C:05DBH         LINE#         79
+  C:05E2H         LINE#         80
+  C:05E9H         LINE#         81
+  C:05E9H         LINE#         82
+  -------         ENDPROC       UART_ISR
+  -------         ENDMOD        UART
+
+  -------         MODULE        ?C?CSTPTR
+  C:04ACH         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        PRINTF
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/16/2026  10:05:50  PAGE 8
+
+
+  D:0008H         PUBLIC        ?_PRINTF517?BYTE
+  D:0008H         PUBLIC        ?_PRINTF?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF?BYTE
+  C:0088H         PUBLIC        _PRINTF
+  C:0088H         PUBLIC        _PRINTF517
+  C:0082H         PUBLIC        _SPRINTF
+  C:0082H         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CLDPTR
+  C:04BEH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:04D7H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0504H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0514H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+Program Size: data=61.2 xdata=0 code=1746
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
