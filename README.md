@@ -1,7 +1,7 @@
 ✨ 特性 (Features)：
 纯状态机编写，完全非阻塞 (Non-blocking)，不使用任何 delay()，不影响主循环。
 内置超时看门狗机制，遇到干扰或半截数据永不死锁。
-兼容 STC 系列 1T / 12T 模式（详细提一下你踩坑的故事，大家最爱看这个）。
+兼容 STC 系列 1T / 12T 模式
 🛠️ 快速上手 (Quick Start)： 贴一段最简单的 main.c 调用代码，告诉大家怎么初始化、怎么在主循环里读键值。
 🔌 硬件接线： P3.2 接红外接收头（INT0）。
 
@@ -28,4 +28,9 @@
 
 > **💡 提示 (Note):** 
 > 硬件接收头负责将 38kHz 的光信号转换为高低电平，而本代码负责解析这些高低电平。只要你的**遥控器**使用的是标准的 **NEC 协议**（市面上 90% 的红外遥控器，如机顶盒、风扇、DIY小车遥控器），结合上述任意接收头，即可完美解码。
+## 🔌推荐接线图 (Wiring diagram)
 > <img width="774" height="674" alt="接线图" src="https://github.com/user-attachments/assets/8f2f09b9-e50b-4754-ae2a-15ec8f33773b" />
+## 🔌信号波形图 (Signal waveform)
+> <img width="4096" height="1844" alt="信号波形图" src="https://github.com/user-attachments/assets/636609e7-85b2-4ee5-aac4-406ae9c4f298" />
+## 🔌运行效果图 (Run Code)
+<img width="720" height="406" alt="运行视频" src="https://github.com/user-attachments/assets/409fe531-db81-4f6c-b15a-e905fbd8caf1" />
